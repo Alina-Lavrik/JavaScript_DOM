@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">Купить</button>
+    <div class="content">
+
+    </div>
+
+    <img width="600" src="image/yellow-jacket.jpg" alt="image" class="img">
+    <script>
+        const buttonEl = document.querySelector('.btn'); // поймали кнопку
+        const contentEl = document.querySelector('.content'); // поймали контент
+        const imgEl = document.querySelector('.img'); // поймали картинку 
+
+        imgEl.onclick = function() {
+            imgEl.src = 'image/yellow-jacket-2.jpg';  // при нажатии на картинку меняем картинку
+        }
+        
+        const textEl = document.createElement('p');
+        textEl.textContent = 'Создали текст, чтобы добавить его в блок контент';
+
+        // // Добавить событие по клику и элеиент p
+        buttonEl.onclick = function() {
+            buttonEl.textContent = 'Товар в корзине'; // при нажатии на кнопку меняется текст на кнопке
+            contentEl.appendChild(textEl); // добавить дочерний элемент
+        }
+        // При нажатии не кнопку создаваить параграф с текстом
+       
+
+
+
+    </script>
+</body>
+</html>

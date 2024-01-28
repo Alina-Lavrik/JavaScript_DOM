@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="title">Lorem ipsum dolor</h1>
+    <h2 id="heading">Lorem ipsum dolor sit amet.</h2>
+    <ul class="ul">
+        <li class="list">text 1</li>
+        <li class="list">text 2</li>
+        <li class="list">text 3</li>
+    </ul>
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing. 1</p>
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing. 2</p>
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing. 3</p>
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing. 4</p>
+
+    <script>
+        // Обращение по индентифекатору
+        const listEls = document.getElementsByClassName('list');
+        console.log(listEls);
+        const listElsQS = document.querySelectorAll('.list');
+        console.log(listElsQS);
+        const heading3 = document.querySelector('#heading');
+        console.log(heading3);
+        const heading = document.querySelector('.title'); // найди селектор .title такой же как в css
+        const text = document.querySelectorAll('.text'); // найти ВСЕ селекторы .text
+        // выведем все элементы массива .text вариант 1
+        // for (let i = 0; i < text.length; i++) {
+        //     console.log(text[i]);
+            
+        // }
+        // вариант 2
+        // text.forEach(element => {
+        //     console.log(element);
+            
+        // });
+        
+        // Создать заголовок h3
+        const parElem = document.createElement('h3');
+        parElem.textContent = 'My new text element';
+        console.log(parElem);
+        // Посменять заголоаок h1
+        const newTitle = document.querySelector('.title');
+        newTitle.textContent = 'Текс из JS';
+        // Удаление элемента h2
+        const heading2 = document.querySelector('#heading');
+        heading2.remove();
+
+
+    </script>
+    
+</body>
+</html>
