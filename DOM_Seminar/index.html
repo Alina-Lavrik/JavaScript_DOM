@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="block">
+        <p>1</p>
+        <p>2</p>
+    </div>
+    <p class="www">text 1</p>
+    <p class="www">text 2</p>
+
+    <a class="link" href="#">link text html</a>
+
+    <img class="photo" src="" alt="" width="500"> 
+
+    <div class="content"></div> 
+
+
+    <script>
+        // 1.1
+    const pElem = document.querySelector('p');
+    //const pElem = document.querySelector('#block p:first-child');
+    console.log(pElem);
+
+        //1.2
+    const wElem = document.querySelector('.www');
+    console.log(wElem);
+
+    const wwwElem = document.getElementsByClassName('www');
+    console.log(wwwElem[0]);
+
+        //2.1
+    // Дан тег <a class="link" href="#">link text html</a>
+    // Вам необходимо поменять текст внутри ссылки на “link text js”
+    // Заменить href, на значение https://developer.mozilla.org/ru/ 
+
+        const text = document.querySelector('.link');
+        text.textContent = 'link text js';
+        text.href = 'https://developer.mozilla.org/ru/';
+        console.log(text);
+
+    // Дан тег <img class="photo" src="" alt=""> 
+    // Вам необходимо с помощью js поменять значение src на любое изображение из интернета
+
+     const photoN = document.querySelector('.photo');
+     photoN.src = 'yellow-jacket-2.jpg';
+        
+        // 3
+
+    // Дан тег <div class="content"></div> 
+    // Создайте новый элемент p
+    // Добавьте в него текст “Новый текстовый элемент”
+    // Добавьте созданный элемент внутри <div class="content"></div>
+    // Удалите добавленный узел 
+
+    const contentN = document.querySelector('.content');
+    const newElemP = document.createElement('p');  // cel Tab
+    newElemP.textContent = 'Новый текстовый элемент';
+    console.log(newElemP);
+    contentN.appendChild(newElemP);
+    console.log(contentN);
+    newElemP.remove();
+
+    // 4
+
+    // Создать элемент button, добавить в блок <div class="content"></div>
+    // При клике на который в консоль выводится сколько раз пользователь нажал на данную кнопку
+
+
+    const contentNew = document.querySelector('.content');
+    const newButton = document.createElement('button'); 
+    newButton.textContent = 'Купить';
+    contentNew.append(newButton);   // append = appendChild тоже самое
+
+    let count = 0;
+    newButton.onclick = function() {
+        // count++;
+        console.log(++count);  // сначала увеличит счетчик, затем выведет в консоль
+    }
+
+
+    // 5
+
+    // Дан тег <div class="content"></div> 
+    // Создайте с помощью javascript новый элемент button
+    // Добавьте текст для кнопки “Отправить”
+    // При клике на данную кнопку необходимо чтобы текст поменялся на “Текст отправлен”
+
+    const contNew = document.querySelector('.content');
+    const newBut = document.createElement('button'); 
+    newBut.textContent = 'Отправить';
+    contNew.append(newBut); 
+
+    newBut.onclick = function () {
+        newBut.textContent = 'Текст отправлен'; // при нажатии на кнопку меняется текст на кнопке
+    
+    }
+
+
+    </script>
+</body>
+</html>
