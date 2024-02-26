@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="block">
+        <p>1</p>
+        <p>2</p>
+        <p class="www">text 1</p>
+        <p class="www">text 2</p>
+    </div>
+    <a class="link" href="#">link text html</a>
+    <img class="photo" src="" alt=""> 
+    <div class="content"></div> 
+
+
+    <script>
+// 1. Получите ссылку на первый абзац из дива с id, равным block, выведите его в консоль
+
+    const findFirst = document.querySelector('div#block > p');
+    // console.log(findFirst);
+    // console.log(findFirst.textContent); // 1 - выводит текстовое содержимое контента
+    console.log(findFirst.innerHTML);
+
+
+// 2. Получите ссылку на первый абзац с классом www. и вывести его в консоль
+    
+        const findClass = document.querySelector('div#block > p.www');
+        console.log(findClass);
+
+// 3. Дан тег <a class="link" href="#">link text html</a>
+// Вам необходимо поменять текст внутри ссылки на “link text js”
+
+        const findLink = document.querySelector('a.link');
+        findLink.innerHTML = 'link text js';
+
+// Заменить href, на значение https://developer.mozilla.org/ru/ 
+
+        findLink.href = 'https://developer.mozilla.org/ru/';
+        console.log(findLink);
+
+// Дан тег <img class="photo" src="" alt=""> 
+// Вам необходимо с помощью js поменять значение src на любое изображение из интернета
+
+        document.querySelector('img.photo').src = 'https://class-tour.com/wp-content/uploads/5/9/9/599ae62595b4111ca7df0840207b685a.jpeg'; 
+
+// 4. Дан тег <div class="content"></div> 
+// Создайте новый элемент p
+// Добавьте в него текст “Новый текстовый элемент”
+// Добавьте созданный элемент внутри <div class="content"></div>
+// Удалите добавленный узел 
+
+        const findContent = document.querySelector('div.content');
+        const newEl = document.createElement('p');
+        newEl.textContent = 'Новый текстовый элемент';
+        findContent.append(newEl);
+        console.log(findContent);
+        newEl.remove(); // метод remove() удаляет элемент из дерева
+
+// 5. Создать элемент button, добавить в блок <div class="content"></div>
+// При клике на который в консоль выводится сколько раз пользователь нажал на данную кнопку
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Отправить';
+    findContent.append(btn);
+    
+    let count = 0;
+    // btn.onclick = function () {
+    //     console.log(++count); 
+    // }
+    btn.addEventListener('click', (e) => {
+        console.log(++count);
+        e.target.textContent = "Текст отправлен";
+    });
+
+// 6. Добавьте текст для кнопки “Отправить” 
+// При клике на данную кнопку необходимо чтобы текст поменялся на “Текст отправлен”
+
+    // btn.onclick = function () {
+    //     btn.textContent = "Текст отправлен";
+    // }
+
+    </script>
+</body>
+</html>
