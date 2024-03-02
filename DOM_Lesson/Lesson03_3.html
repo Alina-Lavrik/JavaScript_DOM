@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример использования DOM коллекций</title>
+</head>
+<body>
+    <div class="content">
+        <p>Первый параграф</p>
+        <p>Второй параграф</p>
+        <p>Тритий параграф</p>
+    </div>
+    <script>
+        const divElement = document.querySelector('.content');
+        console.log(divElement.childNodes); // NodeList(7) [text, p, text, p, text, p, text]
+        console.log(divElement.children); // HTMLCollection(3) [p, p, p]
+
+        console.log(divElement.childNodes.length); // 7
+        console.log(divElement.children.length); // 3
+
+        [...divElement.children].forEach(element => {
+            console.log(element);
+        });
+       
+
+        Array.from(divElement.childNodes).forEach((childNode) => {
+        console.log('childNode "%s" типа "%d"', childNode.nodeName, childNode.nodeType)
+        });
+       
+        [...divElement.children].forEach((child) => {
+        console.log('child "%s" типа "%d"', child.nodeName, child.nodeType)
+        });
+
+
+    </script>
+    
+</body>
+</html>

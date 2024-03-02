@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading {
+            color: white;
+            text-transform: uppercase;
+            background-color: gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <ul class="menu">
+        <li class="menu_list"><a href="#" class="menu_link">link 1</a></li>
+        <li class="menu_list"><a href="#" class="menu_link">link 2</a></li>
+        <li class="menu_list"><a href="#" class="menu_link">link 3</a></li>
+        <li class="menu_list"><a href="#" class="menu_link">link 4</a></li>
+    </ul>
+
+    <script>
+        // const content = document.querySelector('.content');
+
+        // const h1El = document.createElement('h1');
+        // h1El.textContent = 'h1 element';
+        // h1El.setAttribute('class', 'heading');  // выставляем значение атрибута (класс, ...)
+
+        // const imgEl = document.createElement('img');
+
+        // content.appendChild(h1El);
+        // content.appendChild(imgEl);
+
+        // imgEl.src = 'photo.png';
+        // imgEl.setAttribute('alt', 'крутое фото');
+
+        // инлайн стили главнее
+        // h1El.style.color = 'yellow';
+        // h1El.style.backgroundColor = 'gray';
+        // h1El.style.textAlign = 'center';
+
+        // const liEl = document.querySelectorAll('.menu_list');
+        // console.log(liEl);  // NodeList(4) [li.menu_list, li.menu_list, li.menu_list, li.menu_list]
+        const oneLiEl = document.querySelector('.menu_list');
+        // console.log(oneLiEl);
+        // console.log(oneLiEl.parentNode); // найти родительский элемент <ul class="menu">... </ul>
+        // console.log(oneLiEl.parentNode.childNodes); // дочерний элемент NodeList(9) []
+        // .children - возвращает HTMLcollection
+        // console.log(oneLiEl.parentNode.children); // HTMLCollection(4) [li.menu_list, li.menu_list, li.menu_list, li.menu_list]
+        // const menuEl = document.querySelector('.menu');
+
+        // console.log(menuEl.children); // удобнее работать HTMLCollection(4) [li.menu_list, li.menu_list, li.menu_list, li.menu_list]
+        // console.log(menuEl.childNodes); // NodeList(9) [text, li.menu_list, text, li.menu_list, text, li.menu_list, text, li.menu_list, text]
+        
+        // HTMLCollection(4) не можт использовать методы массива, поэтому используем childNodes
+
+        // menuEl.childNodes.forEach(element => {
+        //     console.log(element);
+         
+        // });
+
+        
+        // console.log(oneLiEl.lastElementChild);
+        // console.log(oneLiEl.lastChild);
+
+        console.log(oneLiEl.parentElement.lastElementChild); // выводит только последний элемент!!!
+        // console.log(oneLiEl.parentElement.lastChild); // #text выводи то, что было последнее: пробел, элемент или перенос строки 
+        console.log(oneLiEl.parentElement.firstElementChild); // выводит первый элемент
+        console.log(oneLiEl.nextElementSibling); // выводит следующий элемент / блок
+        console.log(oneLiEl.nextElementSibling.nextElementSibling); // выводит следующий после следующего
+
+        console.log(oneLiEl.parentElement.lastElementChild.previousElementSibling); // второй элемент с конца
+
+    </script>
+    <script>
+
+    </script>
+
+</body>
+</html>
