@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <!-- <div class="block">
+    <div class="block">
     </div>
     <div class="elem">
         <img src="photo.png" alt="photo">
@@ -24,7 +24,7 @@
           <h2 class="heading">Lorem, ipsum dolor.</h2>
           <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ea!</p>
         </div>
-    </div> -->
+    </div>
     <div class="item">
         <div class="elem">
           <div class="info">
@@ -45,14 +45,14 @@
     // Внутренний отступ 16px
     // 2. Добавить данному блоку класс item_1 (использовать setAttribute)
 
-    // const findBlock = document.querySelector('div.block');
-    // const newElD = document.createElement('div');
-    // newElD.setAttribute('class', 'item');
-    // newElD.textContent  = "Элемент внутри";
-    // findBlock.append(newElD);
-    // console.log(findBlock);
-    // newElD.setAttribute('class', newElD.classList + ' item_1'); // добавили блоку класс item_1
-    // setAttribute полностью перезаписывает атрибут
+    const findBlock = document.querySelector('div.block');
+    const newElD = document.createElement('div');
+    newElD.setAttribute('class', 'item');
+    newElD.textContent  = "Элемент внутри";
+    findBlock.append(newElD);
+    console.log(findBlock);
+    newElD.setAttribute('class', newElD.classList + ' item_1'); // добавили блоку класс item_1
+    // setAttribute полностью перезаписывает атрибут 
 
     // Необходимо с помощью querySelector найти параграф с классом text
     // 1. Вывести в консоль соседний элемент h2
