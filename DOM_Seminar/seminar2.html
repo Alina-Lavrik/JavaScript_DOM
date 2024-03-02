@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            color: darkblue;
+            border: 2px solid black;
+            background-color: #f8f8f8;
+            padding: 16px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- <div class="block">
+    </div>
+    <div class="elem">
+        <img src="photo.png" alt="photo">
+        <div class="content">
+          <h2 class="heading">Lorem, ipsum dolor.</h2>
+          <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, ea!</p>
+        </div>
+    </div> -->
+    <div class="item">
+        <div class="elem">
+          <div class="info">
+            <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+          </div>
+        </div>
+    </div>
+    <form action="#">
+        <input type="text">
+        <button class="btn">Отправить</button>
+    </form>
+      
+    <script>
+    // 1. Дан блок, внутри него необходимо создать элемент div с классом item, разместить текст “Элемент внутри” и задать стили
+    // Цвет текста синий
+    // Рамка сплошная черная
+    // Цвет фона #f8f8f8
+    // Внутренний отступ 16px
+    // 2. Добавить данному блоку класс item_1 (использовать setAttribute)
+
+    // const findBlock = document.querySelector('div.block');
+    // const newElD = document.createElement('div');
+    // newElD.setAttribute('class', 'item');
+    // newElD.textContent  = "Элемент внутри";
+    // findBlock.append(newElD);
+    // console.log(findBlock);
+    // newElD.setAttribute('class', newElD.classList + ' item_1'); // добавили блоку класс item_1
+    // setAttribute полностью перезаписывает атрибут
+
+    // Необходимо с помощью querySelector найти параграф с классом text
+    // 1. Вывести в консоль соседний элемент h2
+    // 2. Вывести в консоль родительский элемент content
+    // 3. Вывести в консоль картинку
+    // 4. Вывести в консоль родительский элемент elem
+
+    // const findP = document.querySelector('div.elem div.content p.text');
+    // console.log(findP.parentElement.firstElementChild); // идем к content затем к первому элементу heading
+    // console.log(findP.previousElementSibling); // вариант 2 вывод heading
+    // console.log(findP.parentElement);
+    // вар 1 вывод картинки
+    // console.log(findP.parentElement.parentElement.firstElementChild);
+    // вар 2 вывод картинки
+    // console.log(document.querySelector('div.elem img'));
+    // вар 1 вывести родительский элемент elem
+    // console.log(findP.parentElement.parentElement.parentElement);
+    // вар 2 вывести родительский элемент elem
+    // console.log(document.querySelector('div.elem img').parentElement.parentElement);
+
+    // 3. С помощью querySelector найти элемент h2  и вывести в консоль всех его родителей
+    
+    // const heading = document.querySelector('div.item div.elem div.info h2');
+
+    // Вар 1
+    // console.log(heading.parentElement);
+    // console.log(heading.parentElement.parentElement);
+    // console.log(heading.parentElement.parentElement.parentElement);
+
+    // Вар 2
+    // let allParent = heading;
+    // do {
+    //     allParent = allParent.parentElement;
+    //     console.log(allParent);
+    // } while (allParent.parentElement != null);
+
+    // 4. Дано поле ввода и кнопка отправить, необходим реализовать функционал, 
+    // если пользователь нажимает на кнопку отправить, а поле ввода пустое, то под полем ввода и 
+    // кнопкой должен появиться заголовок h2 с текстом вы не заполнили поле ввода. Цвет у рамки сделать красным
+
+        const findF = document.querySelector('form input');
+        const btn = document.querySelector('form button.btn');
+
+        // вар 1
+        btn.onclick = function() {
+            if (findF.value === '') {
+                const newHeading = document.createElement('h2');
+                newHeading.textContent = 'Вы не заполнили поле ввода'; // при нажатии на кнопку меняется текст на кнопке
+                findF.parentElement.appendChild(newHeading);
+                findF.style.border = "2px solid red";
+            }     
+        }
+
+        // вар 2
+        // btn.addEventListener('click', () => {
+        //     if (findF.value === ''){
+        //     const newHeading = document.createElement('h2');
+        //     newHeading.textContent = 'Вы не заполнили поле ввода'; // при нажатии на кнопку меняется текст на кнопке
+        //     findF.parentElement.appendChild(newHeading);
+        //     findF.style.border = "2px solid red";
+        //     }
+        // })
+
+
+    </script>
+</body>
+</html>
