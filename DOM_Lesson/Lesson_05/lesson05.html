@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="console.log('hello click html')" class="button">Купить</button>
+    <div onclick="console.log('hello click html')" class="div-button">Купить 2</div> -->
+    <button class="button">Купить</button>
+
+
+    <script>
+        const buttonEl = document.querySelector('.button');
+        let count = 0;
+        
+        // 1 вар
+        // buttonEl.onclick = function (){
+        //     console.log('Click JS button');
+        //     count++;
+        //     console.log(`Кликов по кнопке ${count}`);
+        // }
+
+        // 2 вар
+        const click = function (){
+            console.log('Click JS button');
+            count++;
+            console.log(`Кликов по кнопке ${count}`);
+        }
+
+        // buttonEl.onclick = click; // вызов вынесли отдельно
+
+        buttonEl.addEventListener('click', click);  // call back обращение внутри функции к другой функции
+
+        // добавим на кнопку слушатель событий - ae tab
+
+        // buttonEl.addEventListener('click', function (e) { // e - event - событие по клику
+        //     console.log('Click add');
+        // });
+
+
+
+    </script>
+</body>
+</html>

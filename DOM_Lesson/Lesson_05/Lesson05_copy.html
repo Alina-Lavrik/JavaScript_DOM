@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Optio libero debitis dolore assumenda reprehenderit cumque sed eaque molestias nobis ipsum, 
+    delectus iste, numquam aut? Dolorum expedita eius nostrum doloribus saepe.</p>
+
+    <script>
+        // Копирование
+        // Переходим в браузер копируем часть текста и этот текст отображается в консоли
+
+        document.addEventListener('copy', function (e) {
+            // в момент копирования добавить выбранный элемент getSelection()
+            const copyText = document.getSelection().toString(); 
+            console.log(copyText); // можем добавить - скопировано с такого-то сайта
+        });
+    </script>
+</body>
+</html>

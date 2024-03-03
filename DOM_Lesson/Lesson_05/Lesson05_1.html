@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button">Купить 1</button>
+    <button class="button">Купить 2</button>
+    <button class="button">Купить 3</button>
+
+    <ul class="menu">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+
+    <script>
+        const buttonEls = document.querySelectorAll('.button');
+
+        buttonEls.forEach(element => {
+            element.addEventListener('click', function (event) {
+            const target = event.target;
+            console.log(target);
+            });
+        });
+
+        const menuEl = document.querySelector('.menu');
+
+        // nfn tab стрелочная функция
+        const nameFunction = (e) => {
+            console.log(e.target, e.currentTarget);
+        }
+
+        menuEl.addEventListener('click', nameFunction);
+
+        
+
+    </script>
+</body>
+</html>

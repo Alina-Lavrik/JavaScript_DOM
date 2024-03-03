@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit</title>
+</head>
+<body>
+    <!-- форма -->
+    <form action="#">
+        <input type="text" class="input">
+        <div class="error"></div>
+        <!-- кнопка с подтверждением -->
+        <button type="submit">GO</button>
+    </form>
+
+    <script>
+        // submit - подтверждение - поле не должно быть пустым
+        const inputText = document.querySelector('input');
+        const formRun = document.querySelector('form');
+        const errorEl = document.querySelector('.error');
+
+        formRun.addEventListener('submit', (event) => { // как только нажимаем подтверждение
+            if (inputText.value === '') {  // если значение пустое
+                event.preventDefault(); // останавливаем отправку
+                errorEl.textContent = "Поле не должно быть пустым"; // в error элемент добавляем текст - "Поле..."
+
+            }
+        });
+
+
+    </script>
+</body>
+</html>

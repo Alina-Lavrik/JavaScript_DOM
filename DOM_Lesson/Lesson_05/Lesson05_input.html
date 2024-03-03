@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<body>
+    <!-- создаем поле ввода -->
+    <input type="text">
+<script>
+    // input - меняет входные значения
+
+        const inputEl = document.querySelector('input');
+
+        // inputEl.addEventListener('input', (event) => {
+        //     console.log(event.target.value);  // выводит все значения ввода каскадом, повторяя предыдущие 1 12 123
+        // })
+
+       inputEl.addEventListener('input', (event) => {
+            if (Number(event.target.value) === 123) {
+                console.log('Верно');
+            } else {
+                console.log('Не угадал');
+                
+            }
+       });     
+
+</script>
+
+</body>
+</html>
