@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .click {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <ul>
+            <li class="list">list 1</li>
+            <li class="list">list 2</li>
+            <li class="list">list 3</li>
+        </ul>
+
+
+    </div>
+
+    <script>
+// 1. В html создать кнопку button
+// После загрузки страницы вывести в консоль текст “страница загрузилась”
+// Добавить событие onclick которое выводит в консоль текст “событие onclick”
+// Добавить событие addEventListener которое выводит в консоль текст “событие addEventListener”
+
+    
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Страница загрузилась');
+            const FindEl = document.querySelector('div.container');
+            const btn = document.createElement('button');
+            btn.innerHTML = 'Button'; // чтобы увидеть кнопку
+            FindEl.appendChild(btn);
+
+            btn.onclick = function () {
+            console.log('событие onclick');
+            }
+
+            btn.addEventListener('click', function (e) {
+                console.log('событие addEventListener');
+            });
+        });
+
+
+// Создать в html три кнопки button с нумерацией (1, 2, 3 соответственно)
+// Добавить клик на кнопку , чтобы в консоль выводилась именно та кнопка на которую мы нажали
+// Добавить кнопку button с текстом 4, которая считает сколько раз на нее нажали и количество нажатий на эту кнопку выводит в консоль
+// Создать кнопку button с текстом 5, При клике на которую, меняется текст данной кнопки на “Вы нажали на эту кнопку”
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const FindEl = document.querySelector('div.container');
+
+            const btn1 = document.createElement('button');
+            const btn2 = document.createElement('button');
+            const btn3 = document.createElement('button');
+            btn1.innerHTML = 'Button 1';
+            btn2.innerHTML = 'Button 2';
+            btn3.innerHTML = 'Button 3';
+            FindEl.appendChild(btn1);
+            FindEl.appendChild(btn2);
+            FindEl.appendChild(btn3);
+            // создали функцию, которая передает в консоль кнопку, которую мы нажали
+            let clickFunc = function(e) {
+                console.log(e.target.innerHTML);
+            }
+            btn1.addEventListener('click', clickFunc);
+            btn2.addEventListener('click', clickFunc);
+            btn3.addEventListener('click', clickFunc);
+
+
+            const btn4 = document.createElement('button');
+            btn4.innerHTML = 'Button 4';
+            FindEl.appendChild(btn4);
+            let count = 0;
+            btn4.addEventListener('click', function (e) {
+                count++;
+                console.log(`Кнопка 4 нажата ${count} раз`);
+            });
+
+            const btn5 = document.createElement('button');
+            btn5.innerHTML = 'Button 5';
+            FindEl.appendChild(btn5);
+            btn5.addEventListener('click', function (e) {
+                e.target.innerHTML = 'Вы нажали на эту кнопку';
+            });
+
+        });
+
+
+// Создать кнопку, которая добавляем заголовок h1 с текстом, “Новый заголовок, данный элемент нужно расположить после кнопки
+// Создать вторую кнопку, которая будет удалять созданный заголовок h1
+// Создать третью кнопку, при наведении на которую в консоль будет выводиться текст “вы навели на данную кнопку” , как только вы убираем курсор мыши с кнопки, в консоли должен появиться текст “Наведения на кнопку больше нет”
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const FindEl = document.querySelector('div.container');
+
+            const btnEl = document.createElement('button');
+            btnEl.innerHTML = 'Button';
+            FindEl.appendChild(btnEl);
+            const btnEl2 = document.createElement('button');
+            btnEl2.innerHTML = 'Button Delete';
+            FindEl.appendChild(btnEl2);
+
+            btnEl.addEventListener('click', function (e) {
+                const newEl = document.createElement('h1');
+                FindEl.appendChild(newEl);
+                newEl.innerHTML = 'Новый заголовок';
+
+            });
+
+            btnEl2.addEventListener('click', function (e) {
+                const titeles = document.querySelectorAll('h1');
+                if (titeles.length > 0) {
+                    titeles[titeles.length - 1].remove();
+                }
+            });
+
+
+            const btnEl3 = document.createElement('button');
+            btnEl3.innerHTML = 'Button 3';
+            FindEl.appendChild(btnEl3);
+
+            btnEl3.addEventListener('mouseover', function (e) {
+                console.log('Вы навели на данную кнопку');
+            });
+            btnEl3.addEventListener('mouseleave', function (e) {
+                console.log('Наведения на кнопку больше нет');
+            });
+        });
+
+// Создать в html список состоящий из 3-х произвольных элементов li
+// Нужно создать кнопку которая будет добавлять элементы списка с текстом “новый элемент списка”
+// Создать кнопку, которая будет удалять первый элемент из созданного списка
+// Создать кнопку, при клике на которую ей добавляется класс “click”
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const FindEl = document.querySelector('div.container');
+
+        const btnEl4 = document.createElement('button');
+        btnEl4.innerHTML = 'Button add';
+        FindEl.appendChild(btnEl4);
+
+        const findUl = FindEl.querySelector('ul');
+
+        btnEl4.addEventListener('click', function (e) {
+            const newElem = document.createElement('li');
+            newElem.innerHTML = 'новый элемент списка';
+            findUl.appendChild(newElem);
+        });
+
+        const btnEl5 = document.createElement('button');
+        btnEl5.innerHTML = 'Button delete';
+        FindEl.appendChild(btnEl5);
+
+        btnEl5.addEventListener('click', function (e) {
+            const list = findUl.querySelectorAll('li');
+            if (list.length > 0) {
+                list[0].remove();
+            }
+        });
+
+        const btnEl6 = document.createElement('button');
+        btnEl6.innerHTML = 'Button class';
+        FindEl.appendChild(btnEl6);
+
+        btnEl6.addEventListener('click', function (e) {
+            e.target.classList.add('click');
+        });
+
+
+    });
+
+
+    </script>
+</body>
+</html>
