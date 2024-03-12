@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" class="form">
+        <h2>Форма</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis fuga eveniet autem? Vero labore saepe temporibus quis voluptatibus architecto similique. Omnis, deserunt. Quidem sunt soluta delectus officiis blanditiis iste quasi eligendi reiciendis ullam. Assumenda, odio. Eum atque corrupti at fuga dolor ab vel sit quod. Quam in accusamus non ratione.</p>
+        <!-- label ярлык привязанный к тексту или нет -->
+        <input id="checkbox" type="checkbox" class="check">
+        <label for="checkbox">
+            Согласен с условиями
+        </label>
+        <!-- кнопка отправить submit, когда просим подтвердить данные он подтверждает -->
+        <!-- перенос кнопки <br>-->
+        <div class="error"></div>
+        <button type="submit">Отправить</button>
+    </form>
+
+
+    <script>
+        const inputEl = document.querySelector('.check');
+        const formEl = document.querySelector('.form');
+        const errorEl = formEl.querySelector('.error');  // внутри formEl ищем класс error так быстрее
+        const labelEl = document.querySelector('label');
+        const checkboxEl = document.getElementById('checkbox');
+
+        console.log(labelEl);
+        console.log(checkboxEl);
+
+        inputEl.addEventListener('click', function (e) {
+            const target = e.target;     // обращение к элементу
+            console.log(target.checked); // checked выбран или нет, true or false
+        });
+
+        // добавляем обработку событий вариант 1
+
+        // formEl.addEventListener('submit', function (e) {
+        //     if (inputEl.checked) {  // обращаемся к checked, если выбран, сразу идет проверка на true или false
+        //         console.log('Молодец');
+        //     } else {
+        //         errorEl.textContent = 'Выбрать согласен с условиями';
+        //         errorEl.style.color = 'red';
+        //         labelEl.style.border = "2px solid green";
+        //         labelEl.style.color = "green";
+        //         e.preventDefault(); // нужно остановить событие
+        //     }
+        // });
+
+        // вариант 2 - намного короче
+
+        formEl.addEventListener('submit', function (e) {
+            // у элемента checked выбран ? если да - Молодец : если нет - Выбрать чекбокс
+            console.log(inputEl.checked ? 'Молодец' : 'Выбрать чекбокс');
+        });
+
+    </script>
+</body>
+</html>

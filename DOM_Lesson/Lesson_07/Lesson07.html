@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="myForm">
+        <label><input type="radio" name="propagation-control" value="stopPropagation">Stop propagation</label>
+        <label><input type="radio" name="propagation-control" value="stopImmediatePropagation">Stop immediate propagation</label>
+    </form>
+
+    <ul class="list">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+
+    <script>
+        const findForm = document.querySelector('.myForm');
+        const findUl = document.querySelector('.list');
+        // добавляем на список обработок событий
+        findUl.addEventListener('click', (e) => {
+            console.log('В первом UL в фазе захвата')
+        // поймали элементы и значения, которые присутствуют
+        const progContName = findForm.elements['propagation-control'].value;
+        console.log(progContName);
+        if (progContName) {
+            e[progContName]()  }
+        }, true)
+        findUl.addEventListener('click', () => {
+            console.log('Во втором UL в фазе захвата')
+        }, true)
+        findUl.addEventListener('click', () => {
+            console.log('В первом UL в фазе всплытия')
+        })
+        Array.from(findUl.children).forEach((child) => {
+            child.addEventListener('click', () => {
+                console.log('В каждом LI в фазе всплытия')
+            })
+            
+        });
+    </script>
+</body>
+</html>

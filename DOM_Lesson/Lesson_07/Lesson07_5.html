@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг</title>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/a7ddde55e8.js" crossorigin="anonymous"></script>
+    <form action="#" class="form">
+        <div class="raiting">
+            <div class="raiting_sign">
+                <label for="" class="raiting_sign_label" for="1"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" class="raiting_sign_input" name="rating" id="1" value="1">
+            </div>
+            <div class="raiting_sign">
+                <label for="" class="raiting_sign_label" for="2"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" class="raiting_sign_input" name="rating" id="2" value="2">
+            </div>
+            <div class="raiting_sign">
+                <label for="" class="raiting_sign_label" for="3"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" class="raiting_sign_input" name="rating" id="3" value="3">
+            </div>
+            <div class="raiting_sign">
+                <label for="" class="raiting_sign_label" for="4"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" class="raiting_sign_input" name="rating" id="4" value="4">
+            </div>
+            <div class="raiting_sign">
+                <label for="" class="raiting_sign_label" for="5"><i class="fa-solid fa-star"></i></label>
+                <input type="radio" class="raiting_sign_input" name="rating" id="5" value="5">
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        const form = document.querySelector('.form');
+        const buttonS = document.querySelectorAll('.raiting_sing_input');
+        const comment = document.querySelector('.rating_comment');
+
+        buttonS.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                const checkedNumber = 
+                    document.querySelector('.raiting_sing_input:checked').value || undefined;
+
+                buttonS.forEach((item) => {
+                    const currentLabel = item.previousElementSibling;
+                    (item.value <= checkedNumber) ? currentLabel.classList.add('check') : currentLabel.classList.remove('check');
+                });
+            });
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>
