@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            border: 2px solid green;
+        }
+        .red {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+</div>
+
+<script>
+
+    // В html создать элемент checkbox и текст рядом с ним “Согласен с условиями”
+    // Добавить кнопку отправить
+    // При клике на кнопку отправить нужно проверять выбран ли активным элемент checkbox
+    // Если элемент не выбран, добавить текст под чекбоксом “Необходимо согласиться с условиями”
+    
+    const container = document.querySelector('div.container');
+
+    const checkEl = document.createElement('input');
+    checkEl.type = 'checkbox';
+    checkEl.id = 'agreement';
+   
+    const labelEl = document.createElement('label');
+    labelEl.innerHTML = 'Согласен с условиями';
+    labelEl.for = 'agreement';
+
+    container.appendChild(labelEl);
+    container.appendChild(checkEl);
+
+    const buttonEl = document.createElement('button');
+    buttonEl.innerHTML = 'Отправить';
+    container.appendChild(buttonEl);
+
+
+    buttonEl.addEventListener('click', function (e) {
+        if (!checkEl.checked) {
+        const textEl = document.createElement('p');
+        textEl.innerHTML = 'Необходимо согласиться с условиями';
+        container.appendChild(textEl);
+        }
+    });
+
+
+// В html создать 2 элемента радио кнопки (input type=”radio”) и текст “Чай”, “Кофе” соответственно
+// Кнопка отправить
+// Если выбран чай, необходимо вывести сообщение “Чай закончился”
+// Если выбран кофе, необходимо вывести соообщение “кофе закончился”
+
+    const contEl = document.querySelector('div.container');
+
+    const teaEl = document.createElement('input');
+    contEl.appendChild(teaEl);
+    teaEl.type = 'radio';
+    teaEl.name = 'drink';    // одно название чтобы можно было выбрать только одно радио
+    const labelEl = document.createElement('label');
+    labelEl.innerHTML = 'Чай';
+    contEl.appendChild(labelEl);
+
+    const coffeeEl = document.createElement('input');
+    coffeeEl.type = 'radio';
+    coffeeEl.name = 'drink';    // одно название чтобы можно было выбрать только одно радио
+    contEl.appendChild(coffeeEl);
+    const labelEl2 = document.createElement('label');
+    labelEl2.innerHTML = 'Кофе';
+    contEl.appendChild(labelEl2);
+    const brEl = document.createElement('br');
+    labelEl2.appendChild(brEl);
+
+    const btn = document.createElement('button');
+    btn.innerHTML = 'Отправить';
+    contEl.appendChild(btn);
+
+    btn.addEventListener('click', function (e) {
+        if (teaEl.checked) {
+            const msgEl = document.createElement('p');
+            msgEl.innerHTML = 'Чай закончился';
+            contEl.appendChild(msgEl);
+        }
+        else if (coffeeEl.checked) {
+            const msgEl2 = document.createElement('p');
+            msgEl2.innerHTML = 'Кофе закончился';
+            contEl.appendChild(msgEl2);
+        }
+    });
+
+
+// Создать поле ввода (пароль)
+// Кнопка отправить
+// Если пользователь вводит текст “пароль” то поле ввода должно быть подсвечено зеленым цветом
+// Если пароль неверный, у поля ввода появляется красная обводка и текст “пароль неверный”
+
+    const contElem = document.querySelector('div.container');
+
+    const formEl = document.createElement('form');
+    contElem.appendChild(formEl);
+    const inpEl = document.createElement('input');
+    inpEl.type = 'text';
+    formEl.appendChild(inpEl);
+
+
+    const btnEl = document.createElement('button');
+    btnEl.innerHTML = 'Отправить';
+    contElem.appendChild(btnEl);
+
+    btnEl.addEventListener('click', (event) => {
+            if (inpEl.value.toLocaleLowerCase() === 'пароль') {
+                inpEl.classList.remove('red');
+                inpEl.classList.add('green');
+            } else {
+                inpEl.classList.remove('green');
+                inpEl.classList.add('red');
+                const errEl = document.createElement('p');
+                contElem.appendChild(errEl);
+                errEl.innerHTML = 'Пароль неверный';
+   
+            }
+       });
+
+
+// Создать поле ввода и под ним заголовок h1 с текстом “Заголовок”
+// При вводе текста в поле ввода необходимо чтобы текст внутри заголовка менятся на введенный в поле ввода
+
+        const findElem = document.querySelector('div.container');
+
+        const inpElement = document.createElement('input');
+        inpElement.type = 'text';
+        findElem.appendChild(inpElement);
+
+        const heading = document.createElement('h1');
+        findElem.appendChild(heading);
+        heading.innerHTML = 'Заголовок';
+
+        // 1 отрабатывает при клике мышкой или энтер
+        inpElement.addEventListener('change', function (e) {
+            heading.innerHTML = e.target.value; 
+        });
+ 
+        // 2 отрабатывает синхронно с вводом текста в форму
+        // inpElement.addEventListener('input', function (e) {
+        //     heading.innerHTML = e.target.value; 
+        // });
+
+        // inpElement.addEventListener('keyup', function (e) {
+        //     heading.innerHTML = e.target.value; 
+        // });
+
+        // отрабатывает не сразу при следующем нажатии
+        // inpElement.addEventListener('keydown', function (e) {
+        //     heading.innerHTML = e.target.value; 
+        // });
+
+</script>
+    
+
+
+</body>
+</html>
