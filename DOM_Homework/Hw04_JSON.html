@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bird {
+            color: white;
+            margin-top: 10px;
+            padding-top: 30px;
+            text-align: center;
+            background-color: burlywood;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <script src="data.js"></script>
+
+    <script>
+        const data = JSON.parse(birds); 
+        console.log(data);
+
+        const contEl = document.querySelector('div.content');
+
+        data.forEach(element => {
+        const divEl = document.createElement('div');
+        const hEl = document.createElement('h1');
+        const textEl = document.createElement('p');
+        const imgEl = document.createElement('img');
+        hEl.textContent = element.title;
+        textEl.textContent = element.description;
+        imgEl.src = element.url;
+        divEl.classList.add(element.class);
+        divEl.appendChild(hEl);
+        divEl.appendChild(textEl);
+        divEl.appendChild(imgEl);
+        contEl.appendChild(divEl);  
+        });
+
+    </script>
+
+</body>
+</html>
