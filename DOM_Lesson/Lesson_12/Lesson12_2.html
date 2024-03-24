@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIA 2</title>
+</head>
+<body>
+    <!-- Напишем немного кода, чтобы визуализировать буферные временные интервалы: -->
+    <div>
+        <audio src="file.mp3" controls></audio>
+    </div>
+    <div>
+        <canvas width="300" height="20"></canvas>
+    </div>
+
+    <script>
+        const audio = document.querySelector('audio');
+        const {buffered, duration} = audio;
+        const canvas = document.querySelector('canvas');
+        const context = canvas.getContext('2d');
+        context.fillStyle = 'lightgray';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = 'red';
+        context.strokeStyle = 'white';
+        const coef = canvas.width / duration; // Длина одной секунды в пикселях
+        // отображение TimeRanges
+        audio.addEventListener('seeked', () => {
+            for (i = 0; i < buffered.length; i++) {
+                const startX = buffered.start(i) * coef;
+                const endX = buffered.end(i) * coef;
+                const width = endX - startX;
+                context.fillRect(startX, 0, width, canvas.height);
+                context.rect(startX, 0, width, canvas.height);
+                context.stroke();
+            }
+        });
+    </script>
+        
+        
+
+</body>
+</html>

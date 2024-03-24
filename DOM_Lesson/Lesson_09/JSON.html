@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .product_box {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .product {
+            width: 250px;
+            border: 1px solid #000;
+            padding: 16px;
+        }
+    </style>
+    
+    <div class="product_box">
+        <!-- <div class="product">
+            <img class="product_img" src="#" alt="photo">
+            <div class="product_content">
+                <a class="product_name" href="product.html">Продукт в html</a>
+                <p class="product_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, recusandae!</p>
+                <p class="product_price">55</p>
+            </div>
+        </div> -->
+    </div>
+    <script>
+
+        const prodData  = [
+            {
+                scr: 'img.pmg',
+                alt: 'img obj data',
+                name: 'название из obj data',
+                link: 'product.html',
+                des: 'описание товара из obj data',
+                price: 21000
+            },
+            {
+                scr: 'img2.pmg',
+                alt: 'img obj data new photo',
+                name: 'название нового товара из obj data',
+                link: 'product2.html',
+                des: 'описание нового товара из obj data',
+                price: 19000
+            },
+            {
+                scr: 'img3.pmg',
+                alt: 'img obj data new photo 3',
+                name: 'название нового товара из obj data 3',
+                link: 'product3.html',
+                des: 'описание нового товара из obj data 3',
+                price: 39000
+            }
+
+        ]
+        const prodBox = document.querySelector('.product_box');
+
+        prodData.forEach(prodData => {
+            const prodEl = document.createElement('div');
+            prodEl.classList.add('product');
+
+            const prodImg = document.createElement('img');
+            prodImg.classList.add('product_img');
+            prodImg.setAttribute('alt', prodData.alt);
+            prodImg.src = prodData.src;
+
+            const prodCont = document.createElement('div');
+            prodCont.classList.add('product_content');
+
+            const prodLink = document.createElement('a');
+            prodLink.href = prodData.link;
+            prodLink.textContent = prodData.name;
+
+            const prodText = document.createElement('p');
+            prodText.classList.add('product_text');
+            prodText.textContent = prodData.des;
+
+            const prodPrice = document.createElement('p');
+            prodPrice.classList.add('product_price');
+            prodPrice.textContent = prodData.price;
+
+            prodCont.appendChild(prodLink);
+            prodCont.appendChild(prodText);
+            prodCont.appendChild(prodPrice);
+            prodEl.appendChild(prodImg);
+            prodEl.appendChild(prodCont);
+            prodBox.appendChild(prodEl);
+            
+        });
+
+        
+
+
+    </script>
+
+</body>
+</html>

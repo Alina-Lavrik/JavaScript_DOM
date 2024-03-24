@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Played</title>
+</head>
+<body>
+    <audio src="file.mp3" controls></audio>
+    <script>
+        const audio = document.querySelector('audio');
+        const {played} = audio; // объект TimeRanges
+        const handlePlayed = () => {
+        let totalPlayedSeconds = 0;
+            for(i = 0; played.length; i++) {
+                totalPlayedSeconds += played.end(i) - played.start(i)
+            }
+            console.log(totalPlayedSeconds);
+        };
+        audio.addEventListener('pause', handlePlayed, false);
+        audio.addEventListener('ended', handlePlayed, false);
+    </script>
+</body>
+</html>
