@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="spread.js"></script>
+    <script src="clean.js"></script>
+    <script src="Scope.js"></script>
+    <script src="lexical.js"></script>
+    <script src="recursia.js"></script>
+    
+    <script>
+        // n! = (n-1) * n;
+        // 4! = 3! * 4; // 24
+        // 3! = 2! * 3; // 6
+        // 2! = 1 * 2; // 2
+        // 1! = 1;
+
+        function factorial (number) {
+            if (number === 1){
+                return 1;
+            }
+            return factorial(number - 1) * number;
+        }
+        console.log(factorial(5)); //120 
+    </script> 
+
+</body>
+</html>
