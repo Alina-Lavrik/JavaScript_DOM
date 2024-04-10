@@ -8,7 +8,7 @@
 
 
 class BankAccount {
-    static bankName = "MyBank"; // будет доступно только в данном классе
+    static bankName = "MyBank"; 
 
     constructor(accountNumber, balance) {
     this.accountNumber = accountNumber;
