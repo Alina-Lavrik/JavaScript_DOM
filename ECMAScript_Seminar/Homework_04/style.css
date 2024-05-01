@@ -1,0 +1,33 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    background-color: lightgray;
+}
+
+
+.heading {
+    color: darkgreen;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
+
+.list {
+    border: 1px solid gray;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    padding-left: 20px;
+}
+
+.delete {
+    margin-bottom: 10px;
+}
+
+.user {
+    color: green;
+}
+
