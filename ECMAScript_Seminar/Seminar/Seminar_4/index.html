@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="to_do">To do list</h1>
+    <input type="text" id="task_input">
+    <button onclick="addTask()">Add Task</button> 
+    <!-- метод addTask вешаем на кнопку -->
+    <ul></ul>
+
+
+    <!-- <script src="script1.js"></script>   -->
+    <!-- type="module" у нас будет работать модульная система, импорт и экспорт -->
+    <!-- <script src="localstorage.js"></script> -->
+
+    <script>
+        // находим input по id и ul
+        const inputEl = document.querySelector('#task_input');
+        const ulEl = document.querySelector('ul');
+
+        const savedTask  = JSON.parse(localStorage.getItem('task')) || [];  // || или пустой массив
+        savedTask.forEach(task => {
+            console.log(task);
+            const liEl = document.createElement('li');
+            liEl.textContent = task;
+            ulEl.appendChild(liEl);
+        });
+
+        const addTask = () => {
+            const text = inputEl.value;
+            const liEl = document.createElement('li');
+            liEl.textContent = text;
+            ulEl.appendChild(liEl);
+            // сохранить в локальное хранилище
+            savedTask.push(text);
+            localStorage.setItem('task', JSON.stringify(savedTask));
+            // очищаем input
+            inputEl.value = '';
+
+        };
+
+        
+
+        
+
+
+
+    </script>
+
+</body>
+</html>
