@@ -1,0 +1,14 @@
+{
+  "name": "lesson_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Lesson_02.js",
+  "scripts": {
+    "start": "node Lesson_02.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}

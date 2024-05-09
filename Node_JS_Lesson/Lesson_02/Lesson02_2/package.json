@@ -1,0 +1,11 @@
+{
+  "name": "lavrik_math_package",
+  "version": "1.0.0",
+  "description": "Math function",
+  "main": "Math.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alina Lavrik",
+  "license": "ISC"
+}

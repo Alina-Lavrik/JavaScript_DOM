@@ -1,0 +1,11 @@
+{
+  "name": "lavrik_pass_genaration",
+  "version": "1.0.0",
+  "description": "Generation of password",
+  "main": "password.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alina Lavrik",
+  "license": "ISC"
+}
