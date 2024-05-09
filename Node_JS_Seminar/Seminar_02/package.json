@@ -1,0 +1,14 @@
+{
+  "name": "seminar_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task_01.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "number-precision": "^1.6.0"
+  }
+}
